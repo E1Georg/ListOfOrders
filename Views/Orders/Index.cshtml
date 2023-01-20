@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebApp.Models.Order>
+
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<h3>Лист заказов</h3>
+
+<p>
+    <a asp-action="Create">Создать заказ</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Номер заказа</th>
+            <th>Город отправителя</th>
+            <th>Адрес отправителя</th>
+            <th>Город получателя</th>
+            <th>Адрес получателя</th>
+            <th>Вес груза</th>
+            <th>Дата забора груза</th>            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.citySender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.addressSender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cityRecipient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.addressRecipient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cargoWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pickUpDate)
+            </td>
+            <td>                
+                <a asp-action="Details" asp-route-id="@item.Id">Подробно</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
