@@ -12,6 +12,6 @@ ___
 * Microsoft.EntityFrameworkCore.Tools
 * Npgsql.EntityFrameworkCore.PostgreSQL
 
-2. Установить PostgreSQL.
+2. Установить PostgreSQL и создать БД "Orders".
 3. В файле appsettings.json прописать строку подключения к БД. 
 > После этого проект готов к запуску.
